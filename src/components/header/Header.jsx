@@ -12,10 +12,6 @@ import {
  } from './style';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <HeaderWrapper>
@@ -49,16 +45,18 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  focused: state.focused
+  focused: state.getIn(['header', 'focused'])
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleInputFocus() {
-      dispatch(actionCreator.searchFocus());
+      const action = actionCreator.searchFocus();
+      dispatch(action);
     },
     handleInputBlur() {
-      dispatch(actionCreator.searchBlur());
+      const action = actionCreator.searchBlur();
+      dispatch(action);
     }
   }
 };
