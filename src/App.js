@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
+import store from './store';
+import { Provider } from 'react-redux';
 
 import { Globalstyle } from './style';
+import { IconGlobalstyle } from './static/iconfont/iconfont';
 
 class App extends Component {
   render() {
@@ -9,7 +12,11 @@ class App extends Component {
       <div className="App">
         {/* 全局样式 */}
         <Globalstyle />
-        <Header />
+        {/* 字体图标样式 */}
+        <IconGlobalstyle />
+        <Provider store={ store }>
+          <Header />
+        </Provider>
       </div>
     );
   }

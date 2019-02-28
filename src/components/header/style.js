@@ -45,6 +45,24 @@ export const NavItem = styled.div `
   }
 `;
 
+export const SearchWrapper = styled.article `
+  position: relative;
+  float: left;
+  .iconfont {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    &.focused {
+      background: #777;
+      color: #fff; 
+    }
+  }
+`;
+
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 }) `
@@ -58,8 +76,24 @@ export const NavSearch = styled.input.attrs({
   box-sizing: border-box;
   padding: 0 30px 0 20px;
   background: #eee;
+  color: #666;
   font-size: 15px;
   &::placeholder {
     color: #999;
   }
-`;
+  &.focused {
+    width:240px; 
+  }
+  &.slide-enter {
+    transition: width .5s ease-out;
+  }
+  &.slide-enter-active {
+    width: 240px;
+  }
+  &.slide-exit {
+    transition: width .5s ease-out;
+  }
+  &.slide-exit-active {
+    width: 160px;
+  }
+  `;
