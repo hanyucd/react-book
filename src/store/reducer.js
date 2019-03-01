@@ -14,6 +14,17 @@ const headerReducer = (state = defaultState, action) => {
       return state.set('focused', true);
     case actionType.SEARCH_BLUR:
       return state.set('focused', false);
+    case actionType.HOT_SEARCH:
+      return state.merge({
+        list: action.data,
+        totalPage: action.totalPage
+      });
+    case actionType.MOUSE_ENTER:
+      return state.set('mouseIn', true);
+    case actionType.MOUSE_LEAVE:
+      return state.set('mouseIn', false);
+    case actionType.CHANGE_PAGE:
+      return state.set('page', action.page);
     default:
       return state;
   }
