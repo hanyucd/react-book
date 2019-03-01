@@ -1,4 +1,7 @@
-import defaultState from './state';
+import { 
+  headerDefaultState,
+  homeDefaultState
+} from './state';
 import * as actionType from './action-type';
 import { combineReducers } from 'redux-immutable';
 
@@ -6,8 +9,10 @@ import { combineReducers } from 'redux-immutable';
   Reducer
 */
 
-// 头部 Reducer
-const headerReducer = (state = defaultState, action) => {
+/* 
+  头部 Reducer
+*/
+const headerReducer = (state = headerDefaultState, action) => {
   switch (action.type) {
     case actionType.SEARCH_FOCUS:
     // immutable 对象的 set 方法，会结合之前 immutable 对象的值和设置的值,返回一个全新的对象
@@ -30,6 +35,14 @@ const headerReducer = (state = defaultState, action) => {
   }
 };
 
+/* 
+  首页 Reducer
+*/
+const homeReducer = (state = homeDefaultState, action) => {
+  return state;
+};
+
 export default combineReducers({
-  header: headerReducer
+  header: headerReducer,
+  home: homeReducer
 });

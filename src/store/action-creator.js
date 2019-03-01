@@ -2,10 +2,11 @@ import * as actionType from './action-type';
 import axios from 'axios';
 import { fromJS } from 'immutable';
 
-/*
-  Action creator
-*/
+// Action creator
 
+/*
+  头部 Action
+*/
 // 搜索框获取焦点 Action
 export const searchFocus = () => ({
   type: actionType.SEARCH_FOCUS
@@ -48,3 +49,7 @@ export const getHotList = () => {
       })
   }
 };
+
+/*
+  首页 Action
+*/
