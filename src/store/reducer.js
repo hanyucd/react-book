@@ -1,6 +1,7 @@
 import { 
   headerDefaultState,
-  homeDefaultState
+  homeDefaultState,
+  detailDefaultState
 } from './state';
 import * as actionType from './action-type';
 import { fromJS } from 'immutable';
@@ -58,7 +59,20 @@ const homeReducer = (state = homeDefaultState, action) => {
   }
 };
 
+const detailReducer = (state = detailDefaultState, action) => {
+  switch (action.type) {
+    case actionType.CHANGE_DETAIL:
+      return state.merge({
+        title: action.title,
+        content: action.content
+      })
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   header: headerReducer,
-  home: homeReducer
+  home: homeReducer,
+  detail: detailReducer
 });

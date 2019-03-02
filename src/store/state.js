@@ -17,3 +17,9 @@ export const homeDefaultState = fromJS({
   articlePage: 1,
   showScroll: false
 });
+
+// 详情默认 state
+export const detailDefaultState = fromJS({
+  title: '',
+  content: ''
+});
