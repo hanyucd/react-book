@@ -3,6 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import Home from './pages/home/home';
 import Detail from './pages/detail/detail';
+import Login from './pages/login/login';
+import Write from './pages/write/write';
 import store from './store';
 import { Provider } from 'react-redux';
 
@@ -23,6 +25,8 @@ class App extends Component {
               <Header />
               <Route path="/" exact component={ Home }></Route>
               <Route path="/detail/:id" exact component={ Detail }></Route>
+              <Route exact path="/login" component={ Login }></Route>
+              <Route exact path="/write" component={ Write }></Route>
             </React.Fragment>
           </BrowserRouter>
         </Provider>

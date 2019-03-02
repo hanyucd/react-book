@@ -13,3 +13,7 @@ export const TOGGLE_SCROLL_TOP = 'toggle_scroll_top';
 
 // 详情 action type
 export const CHANGE_DETAIL = 'detail/change_detail';
+
+// 登录 action type
+export const CHANGE_LOGIN = 'change_login';
+export const CHANGE_LOGOUT = 'change_logout';

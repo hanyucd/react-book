@@ -5,6 +5,7 @@ export const HeaderWrapper = styled.div `
   position: relative;
   height: 58px;
   border-bottom: 1px solid #f0f0f0;
+  z-index: 1;
 `;
 
 export const Logo = styled.div `
@@ -35,10 +36,47 @@ export const NavItem = styled.div `
   color: #333;
   &.left {
     float: left;
+    i {
+      font-size: 20px;
+      margin-right: 5px;
+    }
   }
   &.right {
     float: right;
     color: #969696;
+    i {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+  &.reg, &.writting {
+    line-height: 24px;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 6px 12px
+    user-select: none;
+    box-sizing: border-box;
+  }
+  &.reg {
+      width: 80px;
+      height: 38px
+      color: #ea6f5a;
+      margin: 9px 5px 0px 15px;
+      background-color: transparent;  
+      border: 1px solid rgba(236,97,73,.7);
+  }
+  &.writting {
+      width: 100px;
+      height: 40px;
+      color: #fff;
+      margin: 8px 15px 0;
+      background-color: #ea6f5a;
+      border: 1px solid transparent;
+      font-weight: 400;
   }
   &.active {
     color: #ea6f5a;

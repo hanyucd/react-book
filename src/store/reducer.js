@@ -1,7 +1,8 @@
 import { 
   headerDefaultState,
   homeDefaultState,
-  detailDefaultState
+  detailDefaultState,
+  loginDefaultState
 } from './state';
 import * as actionType from './action-type';
 import { fromJS } from 'immutable';
@@ -71,8 +72,23 @@ const detailReducer = (state = detailDefaultState, action) => {
   }
 };
 
+/* 
+  登录 Reducer
+*/
+const loginReducer = (state = loginDefaultState, action) => {
+  switch(action.type) {
+    case actionType.CHANGE_LOGIN:
+      return state.set('login', action.value);
+    case actionType.CHANGE_LOGOUT:
+      return state.set('login', action.value);
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   header: headerReducer,
   home: homeReducer,
-  detail: detailReducer
+  detail: detailReducer,
+  login: loginReducer
 });

@@ -23,3 +23,8 @@ export const detailDefaultState = fromJS({
   title: '',
   content: ''
 });
+
+// 登录默认 state
+export const loginDefaultState = fromJS({
+  login: false
+});

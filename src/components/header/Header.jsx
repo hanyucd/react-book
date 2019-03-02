@@ -68,9 +68,25 @@ class Header extends React.Component {
           <Logo />
         </Link>
         <Nav>
-          <NavItem className="left active">首页</NavItem>
-          <NavItem className="left">下载 APP</NavItem>
-          <NavItem className="right">登录</NavItem>
+          <NavItem className="left active">
+            <i className="iconfont menu-icon">&#xe600;</i>
+            <span className="menu-text">首页</span>
+          </NavItem>
+          <NavItem className="left">
+            <i className="iconfont menu-icon">&#xe663;</i>
+            <span className="menu-text">下载App</span>
+          </NavItem>
+          <Link to="/write">
+            <NavItem className="right writting">
+              <i className="iconfont">&#xe60b;</i>写文章
+            </NavItem>  
+          </Link>
+          <NavItem className="right reg">注册</NavItem>
+          {
+            this.props.login ?
+              <Link to="/login"><NavItem onClick={ this.props.logout } className="right">退出</NavItem></Link> :
+              <Link to="/login"><NavItem className="right">登录</NavItem></Link>
+          }
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -101,7 +117,8 @@ const mapStateToProps = (state) => ({
   list: state.getIn(['header', 'list']),
   totalPage: state.getIn(['header', 'totalPage']),
   page: state.getIn(['header', 'page']),
-  mouseIn: state.getIn(['header', 'mouseIn'])
+  mouseIn: state.getIn(['header', 'mouseIn']),
+  login: state.getIn(['login', 'login'])
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -138,6 +155,9 @@ const mapDispatchToProps = (dispatch) => {
         actionCreator.changePage(++page) :
         actionCreator.changePage(1);
       dispatch(action);
+    },
+    logout() {
+      dispatch(actionCreator.logout());
     }
   }
 };

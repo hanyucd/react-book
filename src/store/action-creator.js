@@ -100,7 +100,6 @@ export const toggleTopShow = (show) => ({
 /*
   详情 Action
 */
-
 const changeDetail = (title, content) => ({
   type: actionType.CHANGE_DETAIL,
   title,
@@ -119,3 +118,32 @@ export const geDetailInfo = (id) => {
       })
   }
 };
+
+/*
+  登录 Action
+*/
+const changeLogin = () => ({
+  type: actionType.CHANGE_LOGIN,
+  value: true
+});
+
+export const logout = () => ({
+  type: actionType.CHANGE_LOGOUT,
+  value: false
+});
+
+export const login = (account, password) => {
+  return (dispatch) => {
+    axios.get(`/api/login.json?account=${ account }&password=${ password }`)
+      .then(res => {
+        const result = res.data.data;
+        result ?
+          dispatch(changeLogin()) :
+          window.alert('失败');
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    console.log(account, password)
+  }
+}
