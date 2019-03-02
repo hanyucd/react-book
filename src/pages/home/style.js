@@ -74,6 +74,19 @@ export const ListInfo = styled.div `
   }
 `;
 
+export const LoadMore = styled.div `
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #ea6f5a;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  margin: 30px 0;
+  text-decoration: none;
+  cursor: pointer;
+`;
+
 export const HomeRight = styled.div `
   width: 280px;
   float: right;
@@ -94,3 +107,17 @@ export const RecommendItem = styled.a.attrs({
   background: url(${(props) => props.imgUrl});
   background-size: contain;
 `;
+
+export const BackTop = styled.a`
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 22px;
+`

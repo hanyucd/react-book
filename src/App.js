@@ -18,9 +18,9 @@ class App extends Component {
         {/* 字体图标样式 */}
         <IconGlobalstyle />
         <Provider store={ store }>
-          <Header />
           <BrowserRouter>
             <React.Fragment>
+              <Header />
               <Route path="/" exact component={ Home }></Route>
               <Route path="/detail" exact component={ Detail }></Route>
             </React.Fragment>

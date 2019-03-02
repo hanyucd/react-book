@@ -7,4 +7,6 @@ export const MOUSE_LEAVE = 'mouse_leave';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 
 // 首页 action type
-// export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const GET_HOME_DATA = 'get_home_data';
+export const Add_ARTICLE_LIST = 'add_articlelist';
+export const TOGGLE_SCROLL_TOP = 'toggle_scroll_top';

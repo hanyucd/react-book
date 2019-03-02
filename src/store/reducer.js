@@ -3,11 +3,10 @@ import {
   homeDefaultState
 } from './state';
 import * as actionType from './action-type';
+import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 
-/*
-  Reducer
-*/
+// Reducer
 
 /* 
   头部 Reducer
@@ -39,7 +38,24 @@ const headerReducer = (state = headerDefaultState, action) => {
   首页 Reducer
 */
 const homeReducer = (state = homeDefaultState, action) => {
-  return state;
+  switch(action.type) {
+    case actionType.GET_HOME_DATA:
+      const { topicList, articleList, recommendList } = action;
+      return state.merge({
+        topicList: fromJS(topicList),
+        articleList: fromJS(articleList),
+        recommendList: fromJS(recommendList)
+      })
+    case actionType.Add_ARTICLE_LIST:
+      return state.merge({
+        'articleList': state.get('articleList').concat(action.list),
+        'articlePage': action.nextPage
+      });
+    case actionType.TOGGLE_SCROLL_TOP:
+      return state.set('showScroll', action.show)
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({

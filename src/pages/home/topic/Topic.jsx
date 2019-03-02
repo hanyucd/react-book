@@ -15,6 +15,8 @@ class Topic extends React.Component {
               <TopicItem key={ item.get('id') }>
                 <img
                   className="topic-img"
+                  src={ item.get('imgUrl') }
+                  alt=''
                 />
                 { item.get('title') }
               </TopicItem>

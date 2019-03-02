@@ -29,8 +29,7 @@ export const changePage = (page) => ({
   page
 });
 
-// 热门搜索 Action
-export const hotSearch = (data) => ({
+const hotSearch = (data) => ({
   type: actionType.HOT_SEARCH,
   data: fromJS(data),
   totalPage: Math.ceil(data.length / 10)
@@ -53,3 +52,47 @@ export const getHotList = () => {
 /*
   首页 Action
 */
+
+const changeHomeData = (result) => ({
+  type: actionType.GET_HOME_DATA,
+  topicList: result.topicList,
+  articleList: result.articleList,
+  recommendList: result.recommendList 
+});
+
+export const getHomeData = () => {
+  return (dispatch) => {
+    axios.get('/api/home.json')
+      .then(res => {
+        const result = res.data.data;
+        dispatch(changeHomeData(result));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}
+
+const addHomeList = (list, nextPage) => ({
+  type: actionType.Add_ARTICLE_LIST,
+  list: fromJS(list),
+  nextPage
+});
+
+export const getMoreList = (page) => {
+  return (dispatch) => {
+    axios.get(`/api/homeList.json?page=${ page }`)
+      .then(res => {
+        const result = res.data.data;
+        dispatch(addHomeList(result, ++page));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}
+
+export const toggleTopShow = (show) => ({
+  type: actionType.TOGGLE_SCROLL_TOP,
+  show
+});
